@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/OysterWheel.css">
+    <link rel="stylesheet" href="code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-7 col-lg-7 col-md-12 col-sm-12 wheelSVG">
+                <svg id="svgC" width="100%" viewBox="10 10 440 425">
+                    <defs>
+                        <pattern id="center1" patternUnits="userSpaceOnUse" x="-23" y="-23" width="102" height="102">
+                            <!-- <image href="./images/coffeebeans.png" x="-55" y="-55" width="212" height="212" /> -->
+                        </pattern>
+                        <filter id="dropshadow" width="160%" height="160%">
+                            <feGaussianBlur in="SourceAlpha" stdDeviation="3" />
+                            <feOffset dx="4" dy="4" result="offsetblur" />
+                            <feMerge>
+                                <feMergeNode />
+                                <feMergeNode in="SourceGraphic" />
+                            </feMerge>
+                        </filter>
+                    </defs>
+                    <!-- <circle onclick="resetWheel()" id="test" cx="230" cy="230" r="40" stroke="#000000" stroke-width="0"
+                                    fill="url(#center1)" />
+                                <rect x="0" y="0" width="100%" height="100%" stroke="#381500" fill="#381500" opacity ="0.4" stroke-width="0"/> -->
+                    <circle onclick="resetWheel()" id="middle" cx="220" cy="220" r="50" stroke="#000000"
+                        stroke-width="0" fill="none" />
+                </svg>
+            </div>
+            <br>
+            <div class="form_input col-xl-4 offset-xl-1 col-lg-5 col-md-12 col-sm-12 col-xs-12"
+                style="background-color: #615d5c26;">
+                <div class="row">
+                    <div class="col">
+                        <h2>Information about your oyster:</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <form action="/addoyster" th:object="oysters" method="POST" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label for="formGroupExampleInput">Oyster name:</label>
+                                <input type="text" name="oysterName" class="form-control" id="oysterName">
+                                <input type="hidden" id="flavorsOyster" class="form-control" name="flavorsOyster">
+                            </div>
+                            <div class="form-group">
+                                <label for="formGroupExampleInput2">Place of origin:</label>
+                                <input type="text" name="oysterOrigin" class="form-control" id="oysterOrigin">
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 form-group">
+                                    <label for="formGroupExampleInput2">Oyster type:</label>
+                                    <input type="text" name="oysterType" class="form-control" id="oysterType">
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label for="exampleSelect1">Oyster size:</label>
+                                    <select class="form-control" id="oysterSize" name="oysterSize">
+                                        <option value="" selected>Select oyster size</option>
+                                        <option>n°5</option>
+                                        <option>n°4</option>
+                                        <option>n°3</option>
+                                        <option>n°2</option>
+                                        <option>n°1</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label for="exampleSelect2">Tasting method:</label>
+                                    <select class="form-control" name="tastingMethod" id="tastingMethod">
+                                        <option value="" selected>Select tasting method</option>
+                                        <option>Pairing</option>
+                                        <option>Tasting</option>
+                                        <option>Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleTextarea">Extra info:</label>
+                                <textarea class="form-control" name="userNotes" id="userNotes" rows="3"></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Flavours:</label>
+                                <textarea class="form-control" id="flavors" type="text" rows="3"></textarea>
+                            </div>
+
+                        </form>
+                        <br>
+                        <br>
+                        </divclass="form-group">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <script src="/OysterWheel.js"></script>
+</body>
+
+</html>
